@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mechatronics-ai-assistant
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: MODEL_NAME
+        value: deepseek-chat
+      - key: API_BASE
+        value: https://api.deepseek.com
